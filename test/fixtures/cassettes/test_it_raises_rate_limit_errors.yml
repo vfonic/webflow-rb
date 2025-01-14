@@ -1,0 +1,91 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: https://api.webflow.com/v2/sites
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <TEST_API_TOKEN>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 429
+        message: Too Many Requests
+      headers:
+        Date:
+          - Tue, 14 Jan 2025 19:14:46 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Content-Length:
+          - "96"
+        Connection:
+          - keep-alive
+        Etag:
+          - W/"60-DpTm+bsK1EMeVvVQjd2eOIvXDxo"
+        Retry-After:
+          - "1"
+        X-Ratelimit-Limit:
+          - "60"
+        X-Ratelimit-Remaining:
+          - "0"
+        X-Response-Time:
+          - 20.426ms
+      body:
+        encoding: UTF-8
+        string: '{"message":"Too Many Requests","code":"too_many_requests","externalReference":null,"details":[]}'
+    recorded_at: Tue, 14 Jan 2025 19:14:46 GMT
+  - request:
+      method: get
+      uri: https://api.webflow.com/v2/sites
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <TEST_API_TOKEN>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 429
+        message: Too Many Requests
+      headers:
+        Date:
+          - Tue, 14 Jan 2025 19:14:46 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Content-Length:
+          - "96"
+        Connection:
+          - keep-alive
+        Etag:
+          - W/"60-DpTm+bsK1EMeVvVQjd2eOIvXDxo"
+        Retry-After:
+          - "1"
+        X-Ratelimit-Limit:
+          - "60"
+        X-Ratelimit-Remaining:
+          - "0"
+        X-Response-Time:
+          - 20.426ms
+      body:
+        encoding: UTF-8
+        string: '{"message":"Too Many Requests","code":"too_many_requests","externalReference":null,"details":[]}'
+    recorded_at: Tue, 14 Jan 2025 19:14:46 GMT
+recorded_with: VCR 6.3.1

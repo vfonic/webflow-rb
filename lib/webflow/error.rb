@@ -1,6 +1,6 @@
 module Webflow
   class Error < StandardError
-    attr_reader :data
+    attr_reader :data, :response
 
     def initialize(data)
       @data = data
@@ -17,4 +17,6 @@ module Webflow
       data[:details]
     end
   end
+
+  class RateLimitError < Error; end
 end

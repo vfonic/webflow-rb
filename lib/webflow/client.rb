@@ -132,10 +132,27 @@ module Webflow
       request.body = data.to_json if %i[post patch].include?(method)
 
       response = http.request(request)
-      body = response.read_body
+      handle_response(response)
+    rescue Webflow::RateLimitError => e
+      retry_after = e.response['retry-after'].to_i
+      sleep retry_after
+      # Retry once
+      response = http.request(request)
+      handle_response(response)
+    end
 
+    def handle_response(response) # rubocop:disable Metrics/MethodLength
+      body = response.read_body
       result = JSON.parse(body, symbolize_names: true) unless body.nil?
-      raise Webflow::Error, result if response.code.to_i >= 400
+
+      case response.code.to_i
+      when 429
+        error = RateLimitError.new(result)
+        error.instance_variable_set(:@response, response)
+        raise error
+      when 400..599
+        raise Webflow::Error, result
+      end
 
       result
     end
