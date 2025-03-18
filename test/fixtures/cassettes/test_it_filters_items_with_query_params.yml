@@ -1,0 +1,141 @@
+---
+http_interactions:
+  - request:
+      method: post
+      uri: https://api.webflow.com/v2/collections/655276efe9424bcefd3231a2/items
+      body:
+        encoding: UTF-8
+        string: '{"isArchived":false,"isDraft":true,"fieldData":{"name":"Test 1"}}'
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <TEST_API_TOKEN>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 202
+        message: Accepted
+      headers:
+        Date:
+          - Tue, 18 Mar 2025 16:16:26 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Content-Length:
+          - "255"
+        Connection:
+          - keep-alive
+        Etag:
+          - W/"ff-84nvIv+ehh6GrdjGZ3vsUdnQEnc"
+        Retry-After:
+          - "60"
+        X-Ratelimit-Limit:
+          - "120"
+        X-Ratelimit-Remaining:
+          - "119"
+        X-Response-Time:
+          - 725.493ms
+      body:
+        encoding: UTF-8
+        string:
+          '{"id":"67d99c5a194c7a4bd435cbc5","cmsLocaleId":"655276ef2d7dfc2d8eef35a0","lastPublished":null,"lastUpdated":"2025-03-18T16:16:26.270Z","createdOn":"2025-03-18T16:16:26.270Z","isArchived":false,"isDraft":true,"fieldData":{"name":"Test
+          1","slug":"test-1"}}'
+    recorded_at: Tue, 18 Mar 2025 16:16:26 GMT
+  - request:
+      method: post
+      uri: https://api.webflow.com/v2/collections/655276efe9424bcefd3231a2/items
+      body:
+        encoding: UTF-8
+        string: '{"isArchived":false,"isDraft":true,"fieldData":{"name":"Test 2"}}'
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <TEST_API_TOKEN>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 202
+        message: Accepted
+      headers:
+        Date:
+          - Tue, 18 Mar 2025 16:16:27 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Content-Length:
+          - "255"
+        Connection:
+          - keep-alive
+        Etag:
+          - W/"ff-XjU6kWn5dRXSpjWt0ytqirbQSfk"
+        Retry-After:
+          - "59"
+        X-Ratelimit-Limit:
+          - "120"
+        X-Ratelimit-Remaining:
+          - "118"
+        X-Response-Time:
+          - 635.673ms
+      body:
+        encoding: UTF-8
+        string:
+          '{"id":"67d99c5b994bb5307d3f83cb","cmsLocaleId":"655276ef2d7dfc2d8eef35a0","lastPublished":null,"lastUpdated":"2025-03-18T16:16:27.638Z","createdOn":"2025-03-18T16:16:27.638Z","isArchived":false,"isDraft":true,"fieldData":{"name":"Test
+          2","slug":"test-2"}}'
+    recorded_at: Tue, 18 Mar 2025 16:16:27 GMT
+  - request:
+      method: get
+      uri: https://api.webflow.com/v2/collections/655276efe9424bcefd3231a2/items?limit=100&name=Test%201&offset=0
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <TEST_API_TOKEN>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 18 Mar 2025 16:16:28 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Content-Length:
+          - "315"
+        Connection:
+          - keep-alive
+        Etag:
+          - W/"13b-ZJkvP0KXhZfxpezqWleoBW3D8nU"
+        Retry-After:
+          - "58"
+        X-Ratelimit-Limit:
+          - "120"
+        X-Ratelimit-Remaining:
+          - "117"
+        X-Response-Time:
+          - 133.593ms
+      body:
+        encoding: UTF-8
+        string:
+          '{"items":[{"id":"67d99c5a194c7a4bd435cbc5","cmsLocaleId":"655276ef2d7dfc2d8eef35a0","lastPublished":null,"lastUpdated":"2025-03-18T16:16:26.270Z","createdOn":"2025-03-18T16:16:26.270Z","isArchived":false,"isDraft":true,"fieldData":{"name":"Test
+          1","slug":"test-1"}}],"pagination":{"limit":100,"offset":0,"total":1}}'
+    recorded_at: Tue, 18 Mar 2025 16:16:28 GMT
+recorded_with: VCR 6.2.0

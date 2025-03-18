@@ -47,6 +47,18 @@ class WebflowTest < Minitest::Test
     end
   end
 
+  def test_it_filters_items_with_query_params
+    VCR.use_cassette('test_it_filters_items_with_query_params') do
+      CLIENT.create_item(COLLECTION_ID, { name: 'Test 1' }, is_draft: true)
+      CLIENT.create_item(COLLECTION_ID, { name: 'Test 2' }, is_draft: true)
+
+      items = CLIENT.list_items(COLLECTION_ID, query_params: { name: 'Test 1' })
+
+      assert_equal(1, items.length)
+      assert_equal('Test 1', items.first.dig(:fieldData, :name))
+    end
+  end
+
   def test_it_lists_all_items
     VCR.use_cassette('test_it_lists_all_items') do
       CLIENT.list_all_items(COLLECTION_ID) do |items|
