@@ -41,9 +41,9 @@ module Webflow
     #     total:  total # of items in the collection
     #   }
     # }
-    def list_items(collection_id, limit: PAGINATION_LIMIT, offset: 0)
+    def list_items(collection_id, limit: PAGINATION_LIMIT, offset: 0, query_params: {})
       limit = [limit, PAGINATION_LIMIT].min
-      get("/collections/#{collection_id}/items", { limit: limit, offset: offset }).fetch(:items)
+      get("/collections/#{collection_id}/items", query_params.merge(limit: limit, offset: offset)).fetch(:items)
     end
 
     def list_all_items(collection_id) # rubocop:disable Metrics/MethodLength
