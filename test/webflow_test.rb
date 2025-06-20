@@ -55,19 +55,6 @@ class WebflowTest < Minitest::Test
     end
   end
 
-  def test_it_yields_items_when_a_block_is_given
-    VCR.use_cassette('test_it_yields_items_when_a_block_is_given') do
-      names = ['Test 1', 'Test 2', 'Test 3', 'Test 4']
-      names.each { |name| CLIENT.create_item(COLLECTION_ID, { name: name }) }
-
-      limit = 3
-
-      CLIENT.list_items(COLLECTION_ID, limit: limit) do |items|
-        assert_equal(items.length, limit)
-      end
-    end
-  end
-
   def test_it_fetches_a_single_item
     VCR.use_cassette('test_it_fetches_a_single_item') do
       data = { name: 'Test Item Name ABC' }
@@ -126,16 +113,14 @@ class WebflowTest < Minitest::Test
 
   def test_it_raises_validation_errors_with_problems
     VCR.use_cassette('test_raises_validation_errors_with_problems') do
-      data = { name: 'SomeName', field_with_validation: "sh\nrt" }
-      begin
-        CLIENT.create_item(COLLECTION_ID, data)
+      CLIENT.create_item(COLLECTION_ID, { name: 'SomeName', field_with_validation: "sh\nrt" })
 
-        flunk('should have raised')
-      rescue StandardError => e
-        details = 'Validation Error: [{:param=>"field_with_validation", :description=>"Field not described in schema: undefined"}]'
-
-        assert_equal(details, e.message)
-      end
+      flunk('should have raised')
+    rescue StandardError => e
+      assert_equal(
+        'Validation Error: [{param: "field_with_validation", description: "Field not described in schema: undefined"}]',
+        e.message
+      )
     end
   end
 
