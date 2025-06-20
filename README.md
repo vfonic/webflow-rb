@@ -37,6 +37,31 @@ client = Webflow::Client.new(ENV.fetch('WEBFLOW_API_TOKEN'))
 sites = client.sites
 ```
 
+All of the API calls return a Ruby hash with symbolized keys:
+
+```ruby
+> webflow_client.collections('681493c75c21075b809345d7')
+  =>
+    [
+      {
+                  id: "681493c75c21075b809345e2",
+         displayName: "Vendors",
+        singularName: "Vendor",
+                slug: "vendor",
+           createdOn: "2024-06-14T11:00:56.197Z",
+         lastUpdated: "2025-06-18T20:13:11.780Z"
+      },
+      {
+                  id: "681493c75c21075b809345e3",
+         displayName: "Collections",
+        singularName: "Collection",
+                slug: "collections",
+           createdOn: "2024-06-14T11:01:04.826Z",
+         lastUpdated: "2025-06-18T20:13:11.793Z"
+      }
+    ]
+```
+
 Here are method signatures:
 
 ```ruby
